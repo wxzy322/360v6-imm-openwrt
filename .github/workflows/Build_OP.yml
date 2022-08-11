@@ -17,7 +17,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     steps:
     - name: Checkout
@@ -85,7 +85,7 @@ jobs:
       working-directory: ./openwrt
       run: |
         echo -e "build."
-        make V=s
+        make V=s -j$(nproc)
     - name : Upload artifact
       uses: actions/upload-artifact@master
       with:
