@@ -54,7 +54,7 @@ jobs:
     - name: Clone source code
       env: 
         REPO_URL: https://github.com/coolsnowwolf/openwrt-gl-ax1800
-        REPO_BRANCH: 21.02
+        REPO_BRANCH: master
       run: |
         git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
         cd openwrt
