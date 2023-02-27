@@ -14,7 +14,3 @@ sed -i 's/OpenWrt/chainsx-bee/g' openwrt/package/kernel/mac80211/files/lib/wifi/
 
 # 修改 wifi 地区
 sed -i 's/US/CN/g' openwrt/package/kernel/mac80211/files/lib/wifi/mac80211.sh
-
-# 360v6 无线配置文件
-rm openwrt/package/firmware/ath11k-firmware/files/board-2.bin.IPQ6018
-cp bin/board-2.bin openwrt/package/firmware/ath11k-firmware/files/board-2.bin.IPQ6018
