@@ -5,13 +5,6 @@ on:
   workflow_dispatch:
   release:
     types: [published]
-
-  #push:
-  #  branches: 
-  #    - master
-
-  #schedule:
-  #  - cron: 0 8 * * 5
   
   watch:
     types: [started]
@@ -59,8 +52,7 @@ jobs:
       run: |
         git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
         cd openwrt
-        sed -i '$a src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
-        sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
+        sed -i '$a src-git NueXini_Packages https://github.com/NueXini/NueXini_Packages.git' feeds.conf.default
         
     - name: Update & Install feeds
       working-directory: ./openwrt
@@ -68,9 +60,7 @@ jobs:
         ./scripts/feeds update -a
         ./scripts/feeds install -a
         ./scripts/feeds install -a
-        #rm -rf feeds/packages/lang/golang
-        #svn co https://github.com/openwrt/packages/branches/openwrt-22.03/lang/golang feeds/packages/lang/golang
-
+        
     - name: Configuration Customization - Build_Openwrt
       env:
         CONFIG_FILE: '360v6.config'
