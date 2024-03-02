@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
 
     steps:
     - name: Checkout
@@ -80,6 +80,8 @@ jobs:
       run: |
         echo -e "build."
         make V=s -j$(nproc)
+        make V=s -j$(nproc)
+        make V=s -j1
     - name : Upload artifact
       uses: actions/upload-artifact@master
       with:
